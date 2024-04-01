@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:praktikum5/second_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -13,21 +14,24 @@ class HomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              data ?? '',
-              style: const TextStyle(fontSize: 20.0),
-            ),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const SecondPage(
-                        data: 'Data dari Home Page',
-                      ),
-                    ));
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SecondPage(
+                      data: 'ini adalah data kiriman dari home page',
+                    ),
+                  ),
+                );
               },
               child: const Text('Menuju halaman kedua'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/secondpage');
+              },
+              child: const Text('Menuju halaman kedua dengan route'),
             ),
           ],
         ),
